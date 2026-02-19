@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{shared/layout}">
+<head>
+    <title>Створити категорію</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1 class="mb-4">Створення категорії</h1>
+
+    <form th:action="@{/categories/create}" th:object="${model}" method="post" class="col-md-6">
+        <div class="mb-3">
+            <label for="name" class="form-label">Назва</label>
+            <input id="name" type="text" class="form-control" th:field="*{name}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="imageUrl" class="form-label">URL картинки</label>
+            <input id="imageUrl" type="text" class="form-control" th:field="*{imageUrl}">
+        </div>
+
+        <button type="submit" class="btn btn-success">Зберегти</button>
+        <a class="btn btn-outline-secondary ms-2" th:href="@{/categories/list}">Назад</a>
+    </form>
+</div>
+</body>
+</html>
